@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jwt-token
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jwt-token
+  template:
+    metadata:
+      labels:
+        app: jwt-token
+    spec:
+      containers:
+        - name: jwt-token
+          image: qnko2000/jwt-token:0.0.1
+          ports:
+            - containerPort: 8080
